@@ -11,3 +11,10 @@ String::String(const char *s) {
 String::String(const String &s) {
     strcpy(buf, s.buf);
 }
+
+String &String::operator=(const String &s) {
+    if (this != &s) {
+        strcpy(buf, s.buf);
+    }
+    return *this;
+}
