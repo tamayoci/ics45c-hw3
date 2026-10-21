@@ -53,3 +53,7 @@ bool String::operator==(const String &s) const {
     return strcmp(buf, s.buf) == 0;
 }
 
+bool String::operator!=(const String &s) const {
+    return strcmp(buf, s.buf) != 0;
+}
+
