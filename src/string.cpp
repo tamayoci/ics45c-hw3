@@ -31,3 +31,8 @@ int String::size() const {
     return strlen(buf);
 }
 
+String String::reverse() const {
+    String result;
+    reverse_cpy(result.buf, buf);
+    return result;
+}
