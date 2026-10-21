@@ -8,3 +8,6 @@ String::String(const char *s) {
     buf[MAXLEN - 1] = '\0';
 }
 
+String::String(const String &s) {
+    strcpy(buf, s.buf);
+}
