@@ -27,3 +27,7 @@ char &String::operator[](int index) {
     return buf[index];
 }
 
+int String::size() const {
+    return strlen(buf);
+}
+
