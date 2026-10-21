@@ -36,3 +36,10 @@ String String::reverse() const {
     reverse_cpy(result.buf, buf);
     return result;
 }
+
+int String::indexOf(char c) const {
+    const char *ptr = strchr(buf, c);
+    if (ptr == nullptr) return -1;
+    return ptr - buf;
+}
+
