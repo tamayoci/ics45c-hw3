@@ -73,3 +73,14 @@ bool String::operator>=(const String &s) const {
     return strcmp(buf, s.buf) >= 0;
 }
 
+String String::operator+(const String &s) const {
+    String result;
+    if (strlen(buf) + strlen(s.buf) >= MAXLEN) {
+        std::cout << "ERROR: String Capacity Exceeded" << std::endl;
+    }
+    strncpy(result.buf, buf, MAXLEN - 1);
+    result.buf[MAXLEN - 1] = '\0';
+    strncat(result.buf, s.buf, MAXLEN - 1 - strlen(result.buf));
+    return result;
+}
+
