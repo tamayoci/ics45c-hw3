@@ -20,7 +20,13 @@ TEST(StringFunction, strcpy) {
 }
 
 TEST(StringFunction, strncpy) {
-    EXPECT_TRUE(false);
+    char result[10] = "aso";
+
+    EXPECT_EQ(String::strncpy(result, "as", 5), result);
+    EXPECT_STREQ(result, "as");
+    EXPECT_EQ(result[2], '\0');
+    EXPECT_EQ(result[3], '\0');
+    EXPECT_EQ(result[4], '\0');
 }
 
 TEST(StringFunction, strcat) {
