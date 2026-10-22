@@ -93,3 +93,8 @@ String &String::operator+=(const String &s) {
     buf[MAXLEN - 1] = '\0';
     return *this;
 }
+
+void String::print(ostream &out) const {
+    out << buf;
+}
+
