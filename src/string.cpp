@@ -224,3 +224,13 @@ const char *String::strstr(const char *haystack, const char *needle) {
     }
     return nullptr;
 }
+
+ostream &operator<<(ostream &out, const String &s) {
+    s.print(out);
+    return out;
+}
+
+istream &operator>>(istream &in, String &s) {
+    s.read(in);
+    return in;
+}
