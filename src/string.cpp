@@ -84,3 +84,12 @@ String String::operator+(const String &s) const {
     return result;
 }
 
+String &String::operator+=(const String &s) {
+    String temp(s);
+    if (strlen(buf) + strlen(temp.buf) >= MAXLEN) {
+        cout << "ERROR: String Capacity Exceeded" << endl;
+    }
+    strncat(buf, temp.buf, MAXLEN - 1 - strlen(buf));
+    buf[MAXLEN - 1] = '\0';
+    return *this;
+}
