@@ -98,3 +98,8 @@ void String::print(ostream &out) const {
     out << buf;
 }
 
+void String::read(istream &in) {
+    in >> buf;
+    buf[MAXLEN - 1] = '\0';
+}
+
