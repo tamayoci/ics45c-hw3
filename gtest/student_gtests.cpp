@@ -30,7 +30,13 @@ TEST(StringFunction, strncpy) {
 }
 
 TEST(StringFunction, strcat) {
-    EXPECT_TRUE(false);
+    char result[10] = "foo";
+
+    EXPECT_EQ(String::strcat(result, "bar"), result);
+    EXPECT_STREQ(result, "foobar");
+
+    EXPECT_EQ(String::strcat(result, ""), result);
+    EXPECT_STREQ(result, "foobar");
 }
 
 TEST(StringFunction, strncat) {
