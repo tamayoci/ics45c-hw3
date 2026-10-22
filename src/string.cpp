@@ -103,3 +103,5 @@ void String::read(istream &in) {
     buf[MAXLEN - 1] = '\0';
 }
 
+String::~String() {
+}
