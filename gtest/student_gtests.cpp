@@ -66,13 +66,30 @@ TEST(StringFunction, strncmp) {
 }
 
 TEST(StringFunction, reverse_cpy) {
-    EXPECT_TRUE(false);
+    char result[10];
+
+    String::reverse_cpy(result, "abc");
+    EXPECT_STREQ(result, "cba");
+
+    String::reverse_cpy(result, "");
+    EXPECT_STREQ(result, "");
 }
 
 TEST(StringFunction, strchr) {
-    EXPECT_TRUE(false);
+    const char *s = "hello";
+
+    EXPECT_EQ(String::strchr(s, 'e'), s + 1);
+    EXPECT_EQ(String::strchr(s, 'h'), s);
+    EXPECT_EQ(String::strchr(s, 'z'), nullptr);
+    EXPECT_EQ(String::strchr(s, '\0'), s + 5);
 }
 
 TEST(StringFunction, strstr) {
-    EXPECT_TRUE(false);
+    const char *s = "hello";
+
+    EXPECT_EQ(String::strstr(s, "ell"), s + 1);
+    EXPECT_EQ(String::strstr(s, "lo"), s + 3);
+    EXPECT_EQ(String::strstr(s, "h"), s);
+    EXPECT_EQ(String::strstr(s, "z"), nullptr);
+    EXPECT_EQ(String::strstr(s, ""), s);
 }
