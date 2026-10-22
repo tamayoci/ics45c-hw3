@@ -40,15 +40,29 @@ TEST(StringFunction, strcat) {
 }
 
 TEST(StringFunction, strncat) {
-    EXPECT_TRUE(false);
+    char result[10] = "foo";
+
+    String::strncat(result, "bar", 2);
+    EXPECT_STREQ(result, "fooba");
+
+    String::strncat(result, "baz", 3);
+    EXPECT_STREQ(result, "foobabaz");
 }
 
 TEST(StringFunction, strcmp) {
-    EXPECT_TRUE(false);
+    EXPECT_EQ(String::strcmp("abc", "abc"), 0);
+    EXPECT_LT(String::strcmp("abc", "abd"), 0);
+    EXPECT_GT(String::strcmp("abd", "abc"), 0);
+    EXPECT_LT(String::strcmp("abc", "abcd"), 0);
+    EXPECT_GT(String::strcmp("abcd", "abc"), 0);
 }
 
 TEST(StringFunction, strncmp) {
-    EXPECT_TRUE(false);
+    EXPECT_EQ(String::strncmp("abc", "abc", 3), 0);
+    EXPECT_EQ(String::strncmp("abc", "abd", 2), 0);
+    EXPECT_LT(String::strncmp("abc", "abd", 3), 0);
+    EXPECT_GT(String::strncmp("abd", "abc", 3), 0);
+    EXPECT_LT(String::strncmp("abc", "abcd", 4), 0);
 }
 
 TEST(StringFunction, reverse_cpy) {
