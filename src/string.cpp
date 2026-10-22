@@ -134,3 +134,15 @@ char *String::strncpy(char *dest, const char *src, int n) {
     return dest;
 }
 
+char *String::strcat(char *dest, const char *src) {
+    int i = 0;
+    int j = strlen(dest);
+    while (src[i] != '\0') {
+        dest[j] = src[i];
+        ++i;
+        ++j;
+    }
+    dest[j] = '\0';
+    return dest;
+}
+
